@@ -323,7 +323,7 @@ export default function App() {
             style={{ background: COLORS.surfaceAlt, border: `1px solid ${COLORS.border}`, color: COLORS.accent }}
           >
             {/* Replace this block with: <img src="/profile.jpg" className="w-full h-full object-cover" /> */}
-            <img src="/profile.jpg" className="w-full h-full object-cover" alt="Muhammad Muaz Saeed" />
+            <img src="/Profile.jpeg" className="w-full h-full object-cover" alt="Muhammad Muaz Saeed" />
           </div>
           <div>
             <p className="font-mono text-xs mb-3" style={{ color: COLORS.accent2 }}>$ whoami</p>
