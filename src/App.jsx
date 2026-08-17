@@ -41,7 +41,15 @@ const NAV_LINKS = ["about", "skills", "pipeline", "projects", "education", "cont
 
 const PROJECTS = [
   {
-    stage: "01 · Ingest",
+    stage: "01 · Clean",
+    name: "AI Data Cleaning Engine",
+    desc: "A hybrid data cleaning system with a web interface combining rule-based logic, Machine Learning (KNN imputation, Isolation Forest anomaly detection, fuzzy matching), and an optional Gemini LLM layer to auto-detect and fix messy CSV/Excel/database data — upload a messy file, download it clean in the same format.",
+    tags: ["Python", "Streamlit", "Scikit-learn", "Gemini API"],
+    metric: "Rules + ML + LLM",
+    url: "https://github.com/muhammadmuazsaeed/AI_Data_Cleaning_Engine",
+  },
+  {
+    stage: "02 · Ingest",
     name: "AI Underwriting Assistant",
     desc: "Real-estate investment analysis tool. Computes NOI, cash flow, cap rate & ROI, layers a rule-based risk engine on top, and predicts prices with an ML model trained on 190,000+ Pakistan property listings from Zameen.com. Includes a Gemini-powered chat assistant, all wrapped in a Streamlit dashboard. Built during the Career Institute internship.",
     tags: ["Python", "Streamlit", "Scikit-learn", "Gemini API"],
@@ -49,7 +57,7 @@ const PROJECTS = [
     url: "https://github.com/muhammadmuazsaeed/AI_Underwriting_-Assistant",
   },
   {
-    stage: "02 · Model",
+    stage: "03 · Model",
     name: "Credit Scoring Model v2",
     desc: "Predicts loan default risk for 32,000+ applicants. Compared Logistic Regression, Decision Tree, and Random Forest — Random Forest came out on top. Built for the CodeAlpha ML internship.",
     tags: ["Python", "Random Forest", "Scikit-learn"],
@@ -57,7 +65,7 @@ const PROJECTS = [
     url: "https://github.com/muhammadmuazsaeed/Credit_Scoring_Model",
   },
   {
-    stage: "03 · Diagnose",
+    stage: "04 · Diagnose",
     name: "Disease Prediction Project",
     desc: "Predicts the likelihood of diseases (heart disease, diabetes, breast cancer) from structured patient medical data — symptoms, age, blood test results — using classification models including SVM, Logistic Regression, Random Forest, and XGBoost.",
     tags: ["Python", "SVM", "XGBoost", "Random Forest"],
@@ -65,7 +73,7 @@ const PROJECTS = [
     url: "https://github.com/muhammadmuazsaeed/Disease_Prediction_Project",
   },
   {
-    stage: "04 · Regress",
+    stage: "05 · Regress",
     name: "House Price Predictor",
     desc: "A Scikit-learn Linear Regression model that predicts house prices from bedrooms, bathrooms, floors, and city, served through a simple Streamlit frontend.",
     tags: ["Python", "Linear Regression", "Streamlit"],
@@ -73,7 +81,7 @@ const PROJECTS = [
     url: "https://github.com/muhammadmuazsaeed/House_Price_Prediction",
   },
   {
-    stage: "05 · Signal",
+    stage: "06 · Signal",
     name: "Emotion Recognition Model",
     desc: "A deep learning model that classifies human emotion directly from speech audio signals.",
     tags: ["Python", "Deep Learning", "Audio ML"],
@@ -84,8 +92,8 @@ const PROJECTS = [
 
 const SKILLS = [
   { group: "Languages", items: ["Python", "JavaScript", "C++", "HTML", "CSS"] },
-  { group: "ML / Data", items: ["Scikit-learn", "Pandas", "NumPy", "Data Science"] },
-  { group: "Tools", items: ["Streamlit", "Git & GitHub", "VS Code"] },
+  { group: "AI / ML", items: ["Machine Learning", "Deep Learning", "Data Science", "Scikit-learn", "TensorFlow", "Pandas", "NumPy"] },
+  { group: "Tools", items: ["Streamlit", "Git & GitHub", "VS Code", "Hugging Face", "Power BI", "Jupyter Notebook"] },
   { group: "Also exploring", items: ["Web Dev", "Android Dev", "Cybersecurity", "Databases"] },
 ];
 
@@ -323,7 +331,7 @@ export default function App() {
             style={{ background: COLORS.surfaceAlt, border: `1px solid ${COLORS.border}`, color: COLORS.accent }}
           >
             {/* Replace this block with: <img src="/profile.jpg" className="w-full h-full object-cover" /> */}
-            <img src="/Profile.jpeg" className="w-full h-full object-cover" alt="Muhammad Muaz Saeed" />
+            <img src="/profile.jpg" className="w-full h-full object-cover" alt="Muhammad Muaz Saeed" />
           </div>
           <div>
             <p className="font-mono text-xs mb-3" style={{ color: COLORS.accent2 }}>$ whoami</p>
