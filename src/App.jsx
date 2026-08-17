@@ -92,8 +92,8 @@ const PROJECTS = [
 
 const SKILLS = [
   { group: "Languages", items: ["Python", "JavaScript", "C++", "HTML", "CSS"] },
-  { group: "AI / ML", items: ["Machine Learning", "Deep Learning", "Data Science", "Scikit-learn", "TensorFlow", "Pandas", "NumPy"] },
-  { group: "Tools", items: ["Streamlit", "Git & GitHub", "VS Code", "Hugging Face", "Power BI", "Jupyter Notebook"] },
+  { group: "AI / ML", items: ["Machine Learning", "Deep Learning", "Data Science", "Scikit-learn", "TensorFlow", "Keras", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Streamlit", "Gradio", "NLTK"] },
+  { group: "Tools", items: ["Git & GitHub", "VS Code", "Hugging Face", "Power BI", "Jupyter Notebook"] },
   { group: "Also exploring", items: ["Web Dev", "Android Dev", "Cybersecurity", "Databases"] },
 ];
 
@@ -102,12 +102,21 @@ const CERTS = [
     name: "AI Automation",
     level: "Expert level",
     date: "Feb — May 2026",
+    provider: "Edify College of IT, Faisalabad",
     id: "ECIT-AI-0035",
   },
   {
     name: "Data Science",
+    level: "Expert level",
+    date: "Jun — Oct 2025",
+    provider: "Edify College of IT, Faisalabad",
+    id: "ECIT-DS-0034",
+  },
+  {
+    name: "Google IT Automation with Python",
     level: "Certificate of Completion",
-    date: "Edify College of IT",
+    date: "Coursera",
+    provider: "Coursera (Google Career Certificates)",
     id: null,
   },
 ];
@@ -312,10 +321,10 @@ export default function App() {
               Get in touch
             </button>
             <div className="flex items-center gap-3 ml-1">
-              <a href={CONTACT.github} target="_blank" rel="noreferrer" style={{ color: COLORS.textDim }} className="hover:text-white">
+              <a href={CONTACT.github} target="_blank" rel="noreferrer" style={{ color: COLORS.textDim }} className="hover:!text-white transition-colors">
                 <Github size={19} />
               </a>
-              <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" style={{ color: COLORS.textDim }} className="hover:text-white">
+              <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" style={{ color: COLORS.textDim }} className="hover:!text-[#0A66C2] transition-colors">
                 <Linkedin size={19} />
               </a>
             </div>
@@ -330,8 +339,8 @@ export default function App() {
             className="w-40 h-40 md:w-full md:h-52 rounded-2xl overflow-hidden flex items-center justify-center font-display text-4xl font-semibold shrink-0"
             style={{ background: COLORS.surfaceAlt, border: `1px solid ${COLORS.border}`, color: COLORS.accent }}
           >
-            {/* Replace this block with: <img src="/profile.jpg" className="w-full h-full object-cover" /> */}
-            <img src="/profile.jpg" className="w-full h-full object-cover" alt="Muhammad Muaz Saeed" />
+            {/* Photo file: public/Profile.jpeg */}
+            <img src="/Profile.jpeg" className="w-full h-full object-cover" alt="Muhammad Muaz Saeed" />
           </div>
           <div>
             <p className="font-mono text-xs mb-3" style={{ color: COLORS.accent2 }}>$ whoami</p>
@@ -430,20 +439,28 @@ export default function App() {
 
       {/* EDUCATION + CERTS */}
       <section id="education" className="max-w-5xl mx-auto px-6 py-16" style={{ borderTop: `1px solid ${COLORS.border}` }}>
-        <div className="rounded-xl p-6 mb-5" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}` }}>
-          <GraduationCap size={20} style={{ color: COLORS.accent }} className="mb-3" />
-          <p className="font-mono text-xs mb-1" style={{ color: COLORS.textDim }}>2023 — Present</p>
-          <h3 className="font-display font-semibold mb-1">BS Computer Science</h3>
-          <p className="text-sm" style={{ color: COLORS.textDim }}>University of Education, Lahore — Faisalabad Campus</p>
+        <div className="grid md:grid-cols-2 gap-5 mb-5">
+          <div className="rounded-xl p-6" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}` }}>
+            <GraduationCap size={20} style={{ color: COLORS.accent }} className="mb-3" />
+            <p className="font-mono text-xs mb-1" style={{ color: COLORS.textDim }}>2023 — Present</p>
+            <h3 className="font-display font-semibold mb-1">BS Computer Science</h3>
+            <p className="text-sm" style={{ color: COLORS.textDim }}>University of Education, Lahore — Faisalabad Campus</p>
+          </div>
+          <div className="rounded-xl p-6" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}` }}>
+            <GraduationCap size={20} style={{ color: COLORS.accent }} className="mb-3" />
+            <p className="font-mono text-xs mb-1" style={{ color: COLORS.textDim }}>2021 — 2023</p>
+            <h3 className="font-display font-semibold mb-1">FSc Pre-Engineering</h3>
+            <p className="text-sm" style={{ color: COLORS.textDim }}>GOVT Graduate College of Science, Samanabad, Faisalabad</p>
+          </div>
         </div>
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-3 gap-5">
           {CERTS.map((c) => (
             <div key={c.name} className="rounded-xl p-6" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}` }}>
               <Award size={20} style={{ color: COLORS.accent2 }} className="mb-3" />
               <p className="font-mono text-xs mb-1" style={{ color: COLORS.textDim }}>{c.level} · {c.date}</p>
               <h3 className="font-display font-semibold mb-1">{c.name}</h3>
               <p className="text-sm" style={{ color: COLORS.textDim }}>
-                Edify College of IT, Faisalabad{c.id ? ` · ID: ${c.id}` : ""}
+                {c.provider}{c.id ? ` · ID: ${c.id}` : ""}
               </p>
             </div>
           ))}
@@ -463,21 +480,21 @@ export default function App() {
 
           <div>
             <p className="font-mono text-xs mb-4" style={{ color: COLORS.textDim }}>Or reach out directly</p>
-            <div className="flex flex-col gap-3 font-mono text-sm">
-              <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-white transition-colors" style={{ color: COLORS.textDim }}>
-                <MessageCircle size={16} /> WhatsApp — {CONTACT.phoneDisplay}
+            <div className="flex items-center gap-4">
+              <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" title="WhatsApp" className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform hover:-translate-y-1" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, color: "#25D366" }}>
+                <MessageCircle size={19} />
               </a>
-              <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 hover:text-white transition-colors" style={{ color: COLORS.textDim }}>
-                <Mail size={16} /> {CONTACT.email}
+              <a href={`mailto:${CONTACT.email}`} title="Email" className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform hover:-translate-y-1" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, color: "#EA4335" }}>
+                <Mail size={19} />
               </a>
-              <a href={`tel:${CONTACT.phone}`} className="flex items-center gap-3 hover:text-white transition-colors" style={{ color: COLORS.textDim }}>
-                <Phone size={16} /> {CONTACT.phoneDisplay}
+              <a href={`tel:${CONTACT.phone}`} title="Call" className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform hover:-translate-y-1" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, color: COLORS.accent2 }}>
+                <Phone size={19} />
               </a>
-              <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-white transition-colors" style={{ color: COLORS.textDim }}>
-                <Linkedin size={16} /> linkedin.com/in/muaz-saeed-023369377
+              <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" title="LinkedIn" className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform hover:-translate-y-1" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, color: "#0A66C2" }}>
+                <Linkedin size={19} />
               </a>
-              <a href={CONTACT.github} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-white transition-colors" style={{ color: COLORS.textDim }}>
-                <Github size={16} /> github.com/muhammadmuazsaeed
+              <a href={CONTACT.github} target="_blank" rel="noreferrer" title="GitHub" className="w-11 h-11 rounded-xl flex items-center justify-center transition-transform hover:-translate-y-1" style={{ background: COLORS.surface, border: `1px solid ${COLORS.border}`, color: COLORS.text }}>
+                <Github size={19} />
               </a>
             </div>
           </div>
