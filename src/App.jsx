@@ -352,7 +352,7 @@ export default function App() {
               databases.
             </p>
             <p style={{ color: COLORS.textDim }}>
-              I'm currently an AI/ML intern at Career Institute, where I've shipped an
+              I'm currently an AI/ML intern at CSOFT Systems, where I've shipped an
               underwriting analysis tool and am building a second project. Outside of code, I'm
               into photography, movies, business, and exploring new places.
             </p>
